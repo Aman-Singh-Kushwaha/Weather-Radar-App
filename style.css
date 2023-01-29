@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400,500;600;700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  border: 1px solid darkmagenta;
+  font-family:'Montserrat', Arial, sans-serif;
+  font-weight: 400;
+  box-sizing: border-box;
+}
+
+body{
+  position :relative; /* To overlay header on main*/
+  color: #0B202F;
+  background-color: #FAFFAF;
+  overflow: hidden;
+}
+
+
+header{
+  width: 100vw;
+  height: 10vh;
+  padding: 0 10px;
+  position: fixed; /* To stay on top and override static to use z-indexing */
+  z-index: 2;
+  display: flex;
+  justify-content: flex-end; 
+
+}
+
+nav{
+  display: flex;
+  width:35%;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+nav li{
+  list-style: none;
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 600;
+
+}
+
+main{
+  position: relative;
+  /* top:0;
+  left: 0; */
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  z-index: 1;  /* Z-Index to be set below Header Nav */
+  height: 100vh;
+  width: 100vw;
+  overflow-y: hidden;
+}
+
+aside{
+  background-color: #0B202F;
+  color: #ffffff ;
+  padding: 10vh 2em;
+  display:flex;
+  max-height: 100vh;
+}
+.side-container{
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1em;
+}
+.side-container h1{
+  font-weight: 700;
+  font-size: 4em;
+}
+
+.side-container img{
+  max-width: 70%;
+}
+
+main section{
+  overflow-y: scroll;
+  height:auto;
+}
+.hero{
+  height: 50vh;
+  background-color: #95D1CC;
+  padding: 15% 10% 0;
+}
+
+.weather-wrapper{
+  margin-top: 2rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.searchbar {
+  font-size: 14px;
+  font-family: arial, sans-serif;
+  color: #202124;
+  display: flex;
+  z-index: 3;
+  height: 44px;
+  background: white;
+  border: 1px solid #dfe1e5;
+  box-shadow: none;
+  border-radius: 24px;
+  margin: 0 auto;
+  width: auto;
+  max-width: 400px;
+}
+
+.searchbar:hover {
+  box-shadow: 0 1px 6px rgb(32 33 36 / 28%);
+  border-color: rgba(223,225,229,0);
+}
+
+.searchbar-wrapper {
+  flex: 1;
+  display: flex;
+  padding: 5px 8px 0 14px;
+}
+#city-el{
+  flex:1;
+  border: none;
+  box-shadow: none;
+  font-size: 15px;
+}
+#city-el:focus-visible{
+  outline: none;
+  font-size: 18px;
+  transition: ease 0.1s;
+}
+
+.searchbar-left {
+  font-size: 14px;
+  font-family: arial, sans-serif;
+  color: #202124;
+  display: flex;
+  align-items: center;
+  padding-right: 13px;
+  margin-top: -5px;
+}
+
+.search-icon-wrapper {
+  margin: auto;
+}
+
+.search-icon {
+  margin-top: 3px;
+  color: #9aa0a6;
+  height: 20px;
+  line-height: 20px;
+  width: 20px;
+}
+
+.searchbar-icon {
+  display: inline-block;
+  fill: currentColor;
+  height: 24px;
+  line-height: 24px;
+  position: relative;
+  width: 24px;
+}
+
+.searchbar-center {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.searchbar-input-spacer {
+  color: transparent;
+  flex: 100%;
+  white-space: pre;
+  height: 34px;
+  font-size: 16px;
+}
+
+.searchbar-input {
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  color: rgba(0, 0, 0, .87);
+  word-wrap: break-word;
+  outline: none;
+  display: flex;
+  flex: 100%;
+  margin-top: -37px;
+  height: 34px;
+  font-size: 16px;
+  max-width: 100%;
+  width: 100%;
+}
+
+
+.searchbar-clear-icon {
+  margin-right: 12px
+}
