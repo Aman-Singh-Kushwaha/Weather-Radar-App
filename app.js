@@ -21,6 +21,8 @@ searchbtn.addEventListener('click', function(){ //Listening Submit Button Click
 function requestApi(city){     // For making API Request
   apiURL = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
   console.log(apiURL); //Conforming URL Concatination
+  document.querySelector('.hero h1').style= "display: none";
+  document.getElementById('weather-wrapper').style= "visibility: visible";
   fetchData();
 }
 
@@ -40,8 +42,8 @@ function renderDetails(info){  //For Updating Data in HTML
                               <p>Clouds in Sky:${info.current.cloud}%</p>
                               <p>Precipitation(in mm):${info.current.precip_mm}</p>
                               <p>Pressure(in millibars):${info.current.pressure_mb}</p>
-                              <p>Wind Speed(mph): ${info.current.wind_mph}( ${info.current.wind_dir} )</p>`
-  weatherCondition.innerHTML=`<h2>${info.current.condition.text}<h2>
+                              <p>Wind Speed(mph): ${info.current.wind_mph} (${info.current.wind_dir})</p>`
+  weatherCondition.innerHTML=`<h1>${info.current.condition.text}</h1>
                               <img src="${info.current.condition.icon}" alt="Weather Coontion Icon">`;
 }
 
