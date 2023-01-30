@@ -71,11 +71,12 @@ aside{
 }
 .side-container h1{
   font-weight: 700;
-  font-size: 4em;
+  font-size: 5em;
 }
 
 .side-container img{
-  max-width: 70%;
+  max-width: 60%;
+
 }
 
 main section{
@@ -83,20 +84,58 @@ main section{
   height:auto;
 }
 .hero{
-  height: 50vh;
+  height: 65vh;
   background-color: #95D1CC;
   padding: 15% 10% 0;
 }
 
 .weather-wrapper{
   margin-top: 2rem;
-  padding: 1rem;
+  padding: 0.5rem;
   display: flex;
   flex-direction: column;
+  gap: 10px;
   width: 100%;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  background-color: rgba(250, 255, 175, 0.445);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+#weather-city{
+  padding: 0 1rem;
+  display:flex;
+  align-items: baseline;
+}
+
+#weather-city h1{
+  font-weight: 600;
+  font-size: 2.5rem;
+  display: inline-block;
+}
+#weather-city p{
+  font-weight: 400;
+  font-size: 1.5rem;
+  display: inline-block;
+  flex: 0.9;
+}
+#weather-city h2{
+  font-weight: 500;
+  font-size: 2rem; 
+  display: inline-block;
+}
+
+#content{
+  display: flex;
+}
+#weather-data {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-right: 1rem;
+}
+
+#content div{
+  flex: 1;
+}
 
 
 

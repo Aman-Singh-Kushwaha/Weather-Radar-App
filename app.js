@@ -1,25 +1,48 @@
+const inputField = document.getElementById("city-el");
 const searchbtn = document.getElementById("search");
 const apiKey= "20fe150d1c984ee797d90906232801";
 const options = {method: 'GET'};
+const weatherLogCity = document.getElementById("weather-city");
+const weatherLogDetails = document.getElementById("weather-data");
+const weatherCondition = document.getElementById("weather-condition");
 
-searchbtn.addEventListener('click', function(){
-  let city = document.getElementById("city-el").value;
-  console.log(city);
-  const url =`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
-  console.log(url);
-  fetch(url, option)
-  .then(response => response.json())
-  .then(response => render())
-  .catch(err => console.error(err));
+inputField.addEventListener("keyup", e =>{          // Listening Enter Click in Input
+  if(e.key == "Enter" && inputField.value != ""){
+    console.log(inputField.value); //Conforming Enter Click 
+    requestApi(inputField.value);  //Calling API
+  }
+});
+
+searchbtn.addEventListener('click', function(){ //Listening Submit Button Click
+  console.log(inputField.value);
+  requestApi(inputField.value);
 })
 
-const weatherLogCity = document.getElementById("weather-city");
+function requestApi(city){     // For making API Request
+  apiURL = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
+  console.log(apiURL); //Conforming URL Concatination
+  fetchData();
+}
 
-function render(){
-  console.log(response)
-  document.getElementById("weather-wrapper").style={display: flex};
-  weatherLogCity.innerHTML=``
+function fetchData(){              // For Retriving Data From API Request URL
+  fetch(apiURL, options).then(res => res.json())
+  .then(result => renderDetails(result))
+  .catch(err => console.error(err)); //To Handle Error
+}
 
+function renderDetails(info){  //For Updating Data in HTML
+  console.log(info);
+  weatherLogCity.innerHTML=`<h1>${info.location.name}, </h1>
+                            <p>${info.location.region}, ${info.location.country}</p>
+                            <h2>${info.current.temp_c}°C<h2>`;
+  weatherLogDetails.innerHTML=`<p>Feels Like : ${info.current.feelslike_c}</p>
+                              <p>Humidity: ${info.current.humidity}%</p>
+                              <p>Clouds in Sky:${info.current.cloud}%</p>
+                              <p>Precipitation(in mm):${info.current.precip_mm}</p>
+                              <p>Pressure(in millibars):${info.current.pressure_mb}</p>
+                              <p>Wind Speed(mph): ${info.current.wind_mph}( ${info.current.wind_dir} )</p>`
+  weatherCondition.innerHTML=`<h2>${info.current.condition.text}<h2>
+                              <img src="${info.current.condition.icon}" alt="Weather Coontion Icon">`;
 }
 
 // document.getElementById('getApi').addEventListener('click', getApi);
